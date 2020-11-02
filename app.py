@@ -60,7 +60,7 @@ class LibrosHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 			if (m):
 				print(m.group(1))
 				libro = [l for l in libros if l["id"] == int(m.group(1))][0]
-				libro["autor"] = json.loads(httpGET("http://172.25.4.172:8080/autor/" + str(libro["autorid"]) + "/", None))
+				libro["autor"] = json.loads(httpGET("http://172.25.16.43:8080/autor/" + str(libro["autorid"]) + "/", None))
 				response = json.dumps(libro, indent=2)
 			
 		self.wfile.write(b"HTTP/1.1 200 OK\n")
